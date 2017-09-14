@@ -30,12 +30,10 @@ var signup = (req, res) => {
 
 var signin = (req, res) => {
   db.findOne({
-    where: {
-      username: req.body.username
-    }
+    username: req.body.username
   })
   .then(data => {
-    console.log(data);
+    console.log(data.password);
     if (data !== null) {
       if (bcrypt.compareSync(req.body.password, data.password)) {
         var token = jwt.sign({
@@ -44,14 +42,14 @@ var signin = (req, res) => {
         }, proccess.env.SECRET_KEY)
         res.send({
           token: token,
-          id: _id,
-          username: username
+          id: data._id,
+          username: data.username
         })
       } else {
         res.send('password anda salah')
       }
     } else {
-      res.send('username salah')
+      res.send('username yg anda masukkan salah')
     }
   })
   .catch(err => {
