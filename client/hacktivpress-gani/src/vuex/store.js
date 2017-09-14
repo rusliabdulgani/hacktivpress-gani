@@ -10,7 +10,8 @@ const http = axios.create({
 
 const state = {
   articles: [],
-  articleById: {}
+  articleById: {},
+  user: {}
 }
 
 const mutations = {
@@ -27,6 +28,9 @@ const mutations = {
   },
   saveArticle (state, payload) {
     state.articles.push(payload)
+  },
+  signin (state, payload) {
+    state.user = payload
   }
 }
 
@@ -54,6 +58,13 @@ const actions = {
     http.post('/articles', newArticle)
     .then(({data}) => {
       commit('saveArticle', data)
+    })
+  },
+  signin ({commit}, formSignin) {
+    http.post('/users/signin', formSignin)
+    .then(({data}) => {
+      localStorage.setItem('token', JSON.stringify({token: data.token, _id: data._id}))
+      commit('signin', data)
     })
   }
 }

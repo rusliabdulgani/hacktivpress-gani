@@ -35,10 +35,11 @@ var signin = (req, res) => {
     }
   })
   .then(data => {
+    console.log(data);
     if (data !== null) {
       if (bcrypt.compareSync(req.body.password, data.password)) {
         var token = jwt.sign({
-          _id: data.id,
+          _id: data._id,
           username: data.username
         }, proccess.env.SECRET_KEY)
         res.send({
