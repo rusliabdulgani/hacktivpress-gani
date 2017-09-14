@@ -10,7 +10,7 @@
           </div>
           <div class="panel-footer">
             <div class="col-md-2">
-              <span id="left">wrote by: <b>{{article.author.name}}</b></span>
+              <!-- <span id="left">wrote by: <b>{{article.author.name}}</b></span> -->
             </div>
             <div class="col-md-7"></div>
             <div class="col-md-3">
