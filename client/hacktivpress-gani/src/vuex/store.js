@@ -20,6 +20,10 @@ const mutations = {
   },
   setArticleById (state, payload) {
     state.articleById = payload
+  },
+  deleteArticle (state, payload) {
+    const idx = state.articles.findIndex((article) => article.id === payload)
+    state.articles.splice(idx, 1)
   }
 }
 
@@ -35,6 +39,12 @@ const actions = {
     http.get('/articles/' + articleId)
     .then(({data}) => {
       commit('setArticleById', data)
+    })
+  },
+  deleteArticle ({commit}, articleId) {
+    http.delete('/articles/' + articleId)
+    .then(({data}) => {
+      commit('deleteArticle', articleId)
     })
   }
 }

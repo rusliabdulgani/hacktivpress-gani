@@ -7,14 +7,13 @@
             <h3 class="panel-title">{{articleById.title}}</h3>
           </div>
           <div class="panel-body">
-            <div class="row">
+            <div class="row" id="content">
               <div class="col-md-12">
                 {{articleById.content}}
               </div>
             </div>
             <div class="row">
               <div class="col-md-2-offset-8">
-                <a href="#" class="btn btn-primary btn-xs">Mini button</a>
               </div>
             </div>
           </div>
@@ -45,4 +44,7 @@ export default {
 </script>
 
 <style lang="css">
+  #content {
+    padding-bottom: 20px;
+  }
 </style>
