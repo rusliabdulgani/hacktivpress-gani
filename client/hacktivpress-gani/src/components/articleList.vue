@@ -1,9 +1,39 @@
 <template lang="html">
-  <h1>ini article list</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="panel panel-default" v-for="article in articles">
+          <div class="panel-heading"><h4>{{article.title}}</h4></div>
+          <div class="panel-body">
+            {{article.content}}
+          </div>
+          <div class="panel-footer">
+            wrote by: <b>{{article.author.name}}</b>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 export default {
+  computed: {
+    ...mapState([
+      'articles'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'getAllArticles'
+    ])
+  },
+  created () {
+    this.getAllArticles()
+  }
 }
 </script>
 

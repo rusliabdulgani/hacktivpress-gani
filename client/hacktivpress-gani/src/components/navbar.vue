@@ -22,7 +22,7 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
+            <li><router-link to="/signin">Sign in</router-link></li>
           </ul>
         </div>
       </div>

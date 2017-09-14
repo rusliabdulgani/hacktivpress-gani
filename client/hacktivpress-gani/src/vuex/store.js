@@ -13,15 +13,26 @@ const state = {
 }
 
 const mutations = {
+  setAllArticles (state, payload) {
+    console.log('data all articles di mutations ', payload)
+    state.articles = payload
+  }
 }
 
 const actions = {
   getAllArticles ({commit}) {
     http.get('/articles')
-    .then(response1 => {
-      http.get(response2 => {
-        console.log('data artikel di actions ', response1.data)
-      })
+    .then(({data}) => {
+      console.log('data artikel di actions ', data)
+      commit('setAllArticles', data)
     })
   }
 }
+
+const store = new Vuex.Store({
+  state,
+  actions,
+  mutations
+})
+
+export default store
