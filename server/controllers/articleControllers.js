@@ -2,6 +2,7 @@ const db = require('../models/articles')
 
 var getAllArticles = (req, res) => {
   db.find()
+  .populate('author')
   .then(data => {
     res.send(data)
   })
@@ -22,9 +23,10 @@ var getArticleById = (req, res) => {
 
 var createArticle = (req, res) => {
   db.create({
-    title: req.body.name,
+    title: req.body.title,
     content: req.body.content,
-    category: req.body.category
+    category: req.body.category,
+    author: req.body.author
   })
   .then(data => {
     res.send(data)
