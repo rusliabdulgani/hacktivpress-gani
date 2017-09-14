@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Hacktivpress</a>
+          <router-link to="/" class="navbar-brand">Hacktivpress</router-link>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -20,6 +20,7 @@
                 <li><a href="#">Action</a></li>
               </ul>
             </li>
+            <li><a href="#" class="btn btn-info btn-xs">Create New Article</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><router-link to="/signin">Sign in</router-link></li>

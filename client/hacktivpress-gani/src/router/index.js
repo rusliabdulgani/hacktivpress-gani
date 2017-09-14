@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/home'
 import ArticleList from '@/components/articleList'
 import Signin from '@/components/signin'
+import CreateArticle from '@/components/createarticle'
 
 Vue.use(Router)
 
@@ -20,6 +21,10 @@ export default new Router({
         {
           path: '/signin',
           component: Signin
+        },
+        {
+          path: '/create-article',
+          component: CreateArticle
         }
       ]
     }
