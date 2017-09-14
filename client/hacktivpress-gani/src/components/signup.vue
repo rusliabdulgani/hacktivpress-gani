@@ -6,7 +6,7 @@
         <form class="form-horizontal" id="login">
           <fieldset>
             <div class="form-group">
-              <label for="inputUsername" class="col-lg-2 control-label">Username</label>
+              <label for="inputEmail" class="col-lg-2 control-label">Username</label>
               <div class="col-lg-10">
                 <input type="text" class="form-control" id="inputEmail" placeholder="username" v-model="username">
               </div>
@@ -20,7 +20,7 @@
             <div class="form-group">
               <div class="col-lg-10 col-lg-offset-2">
                 <button type="reset" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-primary" @click.prevent="signin">sign in</button>
+                <button type="submit" class="btn btn-primary" @click.prevent="signin">sign up</button>
               </div>
             </div>
           </fieldset>
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  #form {
-    padding-top: 40px;
-  }
+#form {
+  padding-top: 40px;
+}
 </style>

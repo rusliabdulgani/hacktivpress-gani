@@ -9,13 +9,17 @@ const http = axios.create({
 })
 
 const state = {
-  articles: []
+  articles: [],
+  articleById: {}
 }
 
 const mutations = {
   setAllArticles (state, payload) {
     console.log('data all articles di mutations ', payload)
     state.articles = payload
+  },
+  setArticleById (state, payload) {
+    state.articleById = payload
   }
 }
 
@@ -25,6 +29,12 @@ const actions = {
     .then(({data}) => {
       console.log('data artikel di actions ', data)
       commit('setAllArticles', data)
+    })
+  },
+  getArticleById ({commit}, articleId) {
+    http.get('/articles/' + articleId)
+    .then(({data}) => {
+      commit('setArticleById', data)
     })
   }
 }

@@ -9,7 +9,13 @@
             {{article.content}}
           </div>
           <div class="panel-footer">
-            wrote by: <b>{{article.author.name}}</b>
+            <div class="col-md-2">
+              <span id="left">wrote by: <b>{{article.author.name}}</b></span>
+            </div>
+            <div class="col-md-8"></div>
+            <div class="col-md-2">
+              <router-link :to="'/detail-article/' + article._id">detail</router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -37,5 +43,14 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
+  #left {
+    display: block;
+    text-align: left;
+  }
+  
+  #right {
+    display: block;
+    text-align: right;
+  }
 </style>

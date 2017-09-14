@@ -20,9 +20,10 @@
                 <li><a href="#">Action</a></li>
               </ul>
             </li>
-            <li><a href="#" class="btn btn-info btn-xs">Create New Article</a></li>
+            <router-link to="/create-article" class="btn btn-info btn-xs">Create New Article</router-link>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li><router-link to="/signup">Sign up</router-link></li>
             <li><router-link to="/signin">Sign in</router-link></li>
           </ul>
         </div>
